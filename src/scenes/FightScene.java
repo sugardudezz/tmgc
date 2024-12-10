@@ -80,7 +80,10 @@ public class FightScene extends JPanel {
         //도주 버튼
         MyButton flee = new MyButton("도주");
         flee.setBounds(new Geometry(0.79f,0.79f,0.2f,0.1f));
-        flee.addActionListener(e -> SceneManager.playScene(new RoundScene()));
+        flee.addActionListener(e -> {
+            Main.round++;
+            SceneManager.playScene(new RoundScene());
+        });
         add(flee);
 
         //라운드

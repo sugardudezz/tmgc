@@ -8,7 +8,6 @@ import utils.Geometry;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class TamagochiButton extends JButton implements ActionListener{
     public Tamagochi tamagochi;
     public Geometry geometry;

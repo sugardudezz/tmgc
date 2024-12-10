@@ -6,12 +6,14 @@ import tamagochi.Tamagochi;
 import java.util.ArrayList;
 
 public class Storage {
-    public static ArrayList<Tamagochi> tamagochis = new ArrayList<>();
-    public static ArrayList<Tamago> tamagos = new ArrayList<>();
+    static ArrayList<Tamagochi> tamagochis = new ArrayList<>();
     public static ArrayList<Tamagochi> fighters = new ArrayList<>();
     public static ArrayList<Tamagochi> deads = new ArrayList<>();
 
     public static void add(Tamagochi tamagochi){
+        if(tamagochis.size() >= 5){
+            throw new ArrayIndexOutOfBoundsException();
+        }
         tamagochis.add(tamagochi);
         if(fighters.size() < 3){
             fighters.add(tamagochi);
@@ -19,9 +21,8 @@ public class Storage {
         System.out.print("Tamagochi added. Size: "+tamagochis.size()+"\n");
     }
 
-    public static void add(Tamago tamago){
-        tamagochis.add(tamago);
-        System.out.print("Tamago added. Size: "+tamagos.size()+"\n");
+    public static boolean isStorageFull(){
+        return (tamagochis.size() >= 5);
     }
 
     public static void setDead(Tamagochi deadTamagochi){
@@ -31,7 +32,6 @@ public class Storage {
 
     public static void clear(){
         tamagochis.clear();
-        tamagos.clear();
         fighters.clear();
         deads.clear();
     }

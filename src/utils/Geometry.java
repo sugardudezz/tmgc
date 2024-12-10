@@ -36,4 +36,12 @@ public class Geometry extends Rectangle {
     public static ImageIcon getScaledImage(String imagePath, int width, int height){
         return new ImageIcon(new ImageIcon(imagePath).getImage().getScaledInstance(width,height, Image.SCALE_DEFAULT));
     }
+
+    public static void setIcon(JButton component,String imagePath){
+        component.setIcon(getScaledImage(imagePath,component.getWidth(),component.getHeight()));
+    }
+
+    public static void setIcon(JLabel component,String imagePath){
+        component.setIcon(getScaledImage(imagePath,component.getWidth(),component.getHeight()));
+    }
 }

@@ -32,4 +32,8 @@ public class Geometry extends Rectangle {
                 (int)(width*(float) resolution.width),
                 (int)(width*(float) resolution.width));
     }
+
+    public static ImageIcon getScaledImage(String imagePath, int width, int height){
+        return new ImageIcon(new ImageIcon(imagePath).getImage().getScaledInstance(width,height, Image.SCALE_DEFAULT));
+    }
 }

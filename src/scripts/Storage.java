@@ -6,7 +6,7 @@ import tamagochi.Tamagochi;
 import java.util.ArrayList;
 
 public class Storage {
-    static ArrayList<Tamagochi> tamagochis = new ArrayList<>();
+    public static ArrayList<Tamagochi> tamagochis = new ArrayList<>();
     public static ArrayList<Tamagochi> fighters = new ArrayList<>();
     public static ArrayList<Tamagochi> deads = new ArrayList<>();
 

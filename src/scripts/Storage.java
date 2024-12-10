@@ -28,4 +28,11 @@ public class Storage {
         tamagochis.remove(deadTamagochi);
         deads.add(deadTamagochi);
     }
+
+    public static void clear(){
+        tamagochis.clear();
+        tamagos.clear();
+        fighters.clear();
+        deads.clear();
+    }
 }

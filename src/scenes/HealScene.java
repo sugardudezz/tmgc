@@ -2,8 +2,8 @@ package scenes;
 
 import javax.swing.*;
 
-public class UpgradeScene extends JPanel {
-    public UpgradeScene(){
+public class HealScene extends JPanel {
+    public HealScene(){
         setLayout(null);
     }
 }

@@ -4,13 +4,15 @@ import scripts.Main;
 import scripts.Storage;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
+import utils.BackgroundImage;
 import utils.Geometry;
 import utils.HPBar;
 import java.awt.Color;
 import java.awt.Font;
-import utils.Geometry;
+import java.util.Random;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class FightScene extends JPanel {
@@ -42,7 +44,7 @@ public class FightScene extends JPanel {
         attack.setBounds(new Geometry(0.21f,0.79f,0.2f,0.1f));
         Geometry.setIcon(attack, imagePath + "AttackPanel.png");
 
-        attack.setForeground(Color.WHITE);
+        attack.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
         attack.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
         attack.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
 
@@ -60,10 +62,9 @@ public class FightScene extends JPanel {
         substitute.setBounds(new Geometry(0.5f,0.79f,0.2f,0.1f));
         Geometry.setIcon(substitute, imagePath + "SwitchPanel.png");
 
-        substitute.setForeground(Color.WHITE);
+        substitute.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
         substitute.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
         substitute.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
-
         substitute.setFont(font);
 
         substitute.addActionListener(e -> MyButton.setSubstitution(true));
@@ -103,10 +104,9 @@ public class FightScene extends JPanel {
         flee.setBounds(new Geometry(0.79f,0.79f,0.2f,0.1f));
         Geometry.setIcon(flee, imagePath + "RunPanel.png");
 
-        flee.setForeground(Color.WHITE);
+        flee.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
         flee.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
         flee.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
-
         flee.setFont(font);
 
         flee.addActionListener(e -> {
@@ -125,6 +125,21 @@ public class FightScene extends JPanel {
         if(enemy.tamagochi.isFaster(player.tamagochi)){
             AttackThread attackThread = new AttackThread(AttackThread.ENEMY);
             attackThread.start();
+        }
+
+        CheckRound();
+    }
+
+    public void CheckRound() {
+        if ( Main.round >= 0 && Main.round <= 10 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene1.png"); add(bg);
+        }
+        else if ( Main.round >= 11 && Main.round <= 20 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene2.png"); add(bg);
+        }
+
+        else {
+            BackgroundImage bg = new BackgroundImage( "./src/images/FightScene3.png"); add(bg);
         }
     }
 

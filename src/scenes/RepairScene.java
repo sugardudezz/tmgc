@@ -8,7 +8,6 @@ import java.awt.*;
 public class RepairScene extends JPanel {
     public RepairScene(){
         setLayout(null);
-        setBounds(0,0,SceneManager.resolution.width,SceneManager.resolution.height);
 
         JLabel label = new JLabel("<html><h1>정비</h1></html>",SwingConstants.CENTER);
         label.setBounds(new Geometry(0.5f,0.25f,0.5f,0.2f));

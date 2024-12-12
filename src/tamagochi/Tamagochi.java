@@ -12,7 +12,7 @@ public class Tamagochi{
 
     //공통 스탯들
     String name;
-    int prop;
+    public int prop;
     public int maxHealth;
     public int health;
     int attack;
@@ -135,7 +135,7 @@ public class Tamagochi{
         return new ImageIcon(new ImageIcon(this.imagePath).getImage().getScaledInstance(width,height,Image.SCALE_DEFAULT));
     }
 
-    public static class TamagochiSeal extends Tamagochi{
+    private static class TamagochiSeal extends Tamagochi{
         public TamagochiSeal(){
             this.name = "스노하푸";
             this.prop = WATER;
@@ -147,7 +147,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiCat extends Tamagochi{
+    private static class TamagochiCat extends Tamagochi{
         public TamagochiCat(){
             this.name = "워터붐냥이";
             this.prop = WATER;
@@ -159,7 +159,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiBird extends Tamagochi{
+    private static class TamagochiBird extends Tamagochi{
         public TamagochiBird(){
             this.name = "정은챤";
             this.prop = WATER;
@@ -171,7 +171,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiRat extends Tamagochi{
+    private static class TamagochiRat extends Tamagochi{
         public TamagochiRat(){
             this.name = "뜨겁쥐";
             this.prop = FIRE;
@@ -183,7 +183,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiBat extends Tamagochi{
+    private static class TamagochiBat extends Tamagochi{
         public TamagochiBat(){
             this.name = "열받쥐";
             this.prop = FIRE;
@@ -195,7 +195,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiTurtle extends Tamagochi{
+    private static class TamagochiTurtle extends Tamagochi{
         public TamagochiTurtle(){
             this.name = "아뜨거부기";
             this.prop = FIRE;
@@ -207,7 +207,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiPanda extends Tamagochi{
+    private static class TamagochiPanda extends Tamagochi{
         public TamagochiPanda(){
             this.name = "풀바오";
             this.prop = GRASS;
@@ -219,7 +219,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiHedgehog extends Tamagochi{
+    private static class TamagochiHedgehog extends Tamagochi{
         public TamagochiHedgehog(){
             this.name = "꽃슴도치";
             this.prop = GRASS;
@@ -231,7 +231,7 @@ public class Tamagochi{
         }
     }
 
-    public static class TamagochiArmadillo extends Tamagochi{
+    private static class TamagochiArmadillo extends Tamagochi{
         public TamagochiArmadillo(){
             this.name = "덩굴마딜로";
             this.prop = GRASS;

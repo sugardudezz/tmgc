@@ -8,7 +8,6 @@ import utils.Geometry;
 import utils.HPBar;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 public class FightScene extends JPanel {

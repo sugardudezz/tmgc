@@ -11,13 +11,13 @@ public class Tamagochi{
     static final int GRASS = 3;
 
     //공통 스탯들
-    String name;
+    public String name;
     public int prop;
     public int maxHealth;
     public int health;
     int attack;
     int speed;
-    int level = 1;
+    public int level = 1;
     String imagePath = "./src/tamagochi/img/";
 
     public static Tamagochi getRandom(){

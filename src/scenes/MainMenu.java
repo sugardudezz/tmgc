@@ -18,7 +18,7 @@ public class MainMenu extends JPanel {
         label.setBounds(new Geometry(0.5f,0.3f,0.5f,0.2f));
 
         JButton button = new JButton("게임 시작");
-        button.setBounds(new Geometry(0.5f,0.6f,0.3f,0.1f));
+        button.setBounds(new Geometry(0.5f,0.7f,0.3f,0.15f));
         button.addActionListener(e -> SceneManager.playScene(new PrologueScene()));
 
         Geometry.setIcon(button, imagePath + "PlayButton.png");

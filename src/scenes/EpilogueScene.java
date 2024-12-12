@@ -1,6 +1,7 @@
 package scenes;
 
 import scenes.SceneManager;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import java.awt.*;
@@ -8,6 +9,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class EpilogueScene extends JPanel {
+    String imagePath = "./src/images/";
+
     private JLabel label;
     private String[] messages = {
             "수많은 시련을 견뎌내고, 결국 당신은 최고의 다마고치를 키워냈다.",
@@ -40,6 +43,9 @@ public class EpilogueScene extends JPanel {
         add(label);
 
         printEpilogueText();
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "Epilogue.png");
+        add(bg);
     }
 
     private void printEpilogueText() {

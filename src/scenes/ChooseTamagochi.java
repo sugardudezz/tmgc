@@ -4,6 +4,7 @@ import scripts.Main;
 import scripts.Storage;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import javax.swing.*;
@@ -11,6 +12,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ChooseTamagochi extends JPanel {
+    String imagePath = "./src/images/";
+
     public ChooseTamagochi(){
         setLayout(null);
 
@@ -33,6 +36,9 @@ public class ChooseTamagochi extends JPanel {
         JLabel label = new JLabel("<html><h1>원하는 다마고치를 선택하세요</h1></html>",SwingConstants.CENTER);
         label.setBounds(new Geometry(0.5f,0.25f,0.5f,0.2f));
         add(label);
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "RoundScene.png");
+        add(bg);
     }
 }
 

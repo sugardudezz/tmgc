@@ -32,7 +32,11 @@ public class UpgradeScene extends JPanel {
         JButton completeButton = new JButton();
         completeButton.setBounds(new Geometry(0.85f,0.18f,0.2f,0.1f));
         completeButton.setText("완료");
-        completeButton.addActionListener(e -> SceneManager.playScene(new RepairScene()));
+        completeButton.addActionListener(e -> {
+            TamagochiPick.pickedtamagochi.clear();
+            Main.round++;
+            SceneManager.playScene(new RoundScene());
+        });
         add(completeButton);
 
         JButton upgradeButton = new JButton();

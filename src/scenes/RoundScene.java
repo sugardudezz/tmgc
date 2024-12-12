@@ -6,6 +6,7 @@ import utils.Geometry;
 import javax.swing.*;
 
 public class RoundScene extends JPanel {
+    String imagePath = "./src/images/";
     public RoundScene(){
         setLayout(null);
 

@@ -2,12 +2,14 @@ package scenes;
 
 import scenes.SceneManager;
 import utils.Geometry;
-
+import utils.BackgroundImage;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class PrologueScene extends JPanel {
+    String imagePath = "./src/images/";
+
     private JLabel label;
     private String[] messages = {
             "어느 날, 세상에 나타난 특별한 존재들.",
@@ -35,6 +37,8 @@ public class PrologueScene extends JPanel {
         add(label);
 
         printPrologueText();
+        BackgroundImage bg = new BackgroundImage(imagePath + "RoundScene.png");
+        add(bg);
     }
 
     private void printPrologueText() {

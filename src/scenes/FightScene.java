@@ -6,6 +6,9 @@ import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
 import utils.Geometry;
 import utils.HPBar;
+import java.awt.Color;
+import java.awt.Font;
+import utils.Geometry;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -14,6 +17,8 @@ public class FightScene extends JPanel {
     static TamagochiFighter player;
     static TamagochiFighter enemy;
     static ArrayList<TamagochiFighter> substitutions = new ArrayList<>();
+
+    String imagePath = "./src/images/";
 
     public FightScene(){
         setLayout(null);
@@ -35,6 +40,15 @@ public class FightScene extends JPanel {
         //공격 버튼
         MyButton attack = new MyButton("공격");
         attack.setBounds(new Geometry(0.21f,0.79f,0.2f,0.1f));
+        Geometry.setIcon(attack, imagePath + "AttackPanel.png");
+
+        attack.setForeground(Color.WHITE);
+        attack.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        attack.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        Font font = new Font("woodPanel", Font.BOLD, 30);
+        attack.setFont(font);
+
         attack.addActionListener(e -> {
             AttackThread attackThread = new AttackThread(AttackThread.PLAYER);
             attackThread.start();
@@ -44,6 +58,14 @@ public class FightScene extends JPanel {
         //교체 버튼
         MyButton substitute = new MyButton("교체");
         substitute.setBounds(new Geometry(0.5f,0.79f,0.2f,0.1f));
+        Geometry.setIcon(substitute, imagePath + "SwitchPanel.png");
+
+        substitute.setForeground(Color.WHITE);
+        substitute.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        substitute.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        substitute.setFont(font);
+
         substitute.addActionListener(e -> MyButton.setSubstitution(true));
         substitute.setName("substitute");
         add(substitute);
@@ -79,6 +101,14 @@ public class FightScene extends JPanel {
         //도주 버튼
         MyButton flee = new MyButton("도주");
         flee.setBounds(new Geometry(0.79f,0.79f,0.2f,0.1f));
+        Geometry.setIcon(flee, imagePath + "RunPanel.png");
+
+        flee.setForeground(Color.WHITE);
+        flee.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        flee.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        flee.setFont(font);
+
         flee.addActionListener(e -> {
             Main.round++;
             SceneManager.playScene(new RoundScene());

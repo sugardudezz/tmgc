@@ -1,11 +1,14 @@
 package scenes;
 
 import utils.Geometry;
-
+import java.awt.Color;
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.*;
 
 public class RepairScene extends JPanel {
+    String imagePath = "./src/images/";
+
     public RepairScene(){
         setLayout(null);
 
@@ -15,24 +18,55 @@ public class RepairScene extends JPanel {
 
         JButton upgradeButton = new JButton("성장");
         upgradeButton.setBounds(new Geometry(0.25f,0.5f,0.2f,0.14f));
+        Geometry.setIcon(upgradeButton, imagePath + "AttackPanel.png");
+
+        upgradeButton.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
+        upgradeButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        upgradeButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        Font font = new Font("woodPanel", Font.BOLD, 20);
+        upgradeButton.setFont(font);
+
+
         upgradeButton.addActionListener(e -> SceneManager.playScene(new UpgradeScene()));
         upgradeButton.setToolTipText("다마고치를 합쳐 강화하세요");
         add(upgradeButton);
 
         JButton healButton = new JButton("회복");
         healButton.setBounds(new Geometry(0.75f,0.5f,0.2f,0.14f));
+        Geometry.setIcon(healButton, imagePath + "SwitchPanel.png");
+
+        healButton.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
+        healButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        healButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        healButton.setFont(font);
+
         healButton.addActionListener(e -> SceneManager.playScene(new HealScene()));
         healButton.setToolTipText("부상당한 다마고치를 치료하세요");
         add(healButton);
 
         JButton partyButton = new JButton("편성");
         partyButton.setBounds(new Geometry(0.5f,0.5f,0.2f,0.14f));
+        Geometry.setIcon(partyButton, imagePath + "RunPanel.png");
+
+        partyButton.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
+        partyButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        partyButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+        partyButton.setFont(font);
+
         partyButton.addActionListener(e -> SceneManager.playScene(new PartyScene()));
         partyButton.setToolTipText("전투에 출전할 다마고치 팀을 편성하세요");
         add(partyButton);
 
         JButton inventoryButton = new JButton("인벤토리 확인");
         inventoryButton.setBounds(new Geometry(0.5f,0.7f,0.3f,0.06f));
+        Geometry.setIcon(inventoryButton, imagePath + "YellowPanel.png");
+
+        inventoryButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        inventoryButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
         inventoryButton.addActionListener(e -> SceneManager.playScene(new InventoryScene()));
         add(inventoryButton);
     }

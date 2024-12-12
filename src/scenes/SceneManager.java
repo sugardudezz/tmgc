@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class SceneManager {
+public class    SceneManager {
     public static Dimension resolution;
     public static JFrame frame;
 

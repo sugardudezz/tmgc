@@ -1,6 +1,7 @@
 package scenes;
 
 import scripts.Main;
+import utils.BackgroundImage;
 import utils.Geometry;
 import java.awt.Color;
 import java.awt.Font;
@@ -42,6 +43,21 @@ public class RoundScene extends JPanel {
         repairButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
 
         repairButton.setFont(font);
+
+        CheckRound();
     }
+    public void CheckRound() {
+        if ( Main.round >= 0 && Main.round <= 10 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene1.png"); add(bg);
+        }
+        else if ( Main.round >= 11 && Main.round <= 20 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene2.png"); add(bg);
+        }
+
+        else {
+            BackgroundImage bg = new BackgroundImage( "./src/images/FightScene3.png"); add(bg);
+        }
+    }
+
 }
 

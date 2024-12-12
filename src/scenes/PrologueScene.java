@@ -23,9 +23,8 @@ public class PrologueScene extends JPanel {
     public PrologueScene() {
         setLayout(null);
 
-        // JLabel을 사용하여 텍스트를 출력
         label = new JLabel();
-        label.setFont(new Font("Italic", Font.ITALIC, 20));  // 폰트 설정
+        label.setFont(new Font("Italic", Font.ITALIC, 20));
         label.setForeground(Color.BLACK);
 
         // JLabel의 텍스트 가운데 정렬
@@ -42,7 +41,7 @@ public class PrologueScene extends JPanel {
         Timer timer = new Timer(1000, e -> {
             if (messageIndex < messages.length) {
                 String currentMessage = messages[messageIndex];
-                label.setText(currentMessage);  // 새로운 텍스트를 JLabel에 설정
+                label.setText(currentMessage);
                 messageIndex++;
             } else {
                 ((Timer) e.getSource()).stop();  // 모든 메시지가 출력되면 타이머 종료

@@ -11,6 +11,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+import static tamagochi.Tamagochi.*;
+
 public class UpgradeScene extends JPanel {
     public UpgradeScene() {
         setLayout(null);
@@ -43,6 +45,24 @@ public class UpgradeScene extends JPanel {
                     Tamagochi upgradetamagochi = new Tamagochi();
                     upgradetamagochi = TamagochiPick.pickedtamagochi.get(0);
                     upgradetamagochi.level++;
+                    int stat = upgradetamagochi.level - 1;
+                    if (upgradetamagochi.prop == WATER) {
+                        upgradetamagochi.maxHealth += 8 * stat;
+                        upgradetamagochi.health += 8 * stat;
+                        upgradetamagochi.attack += stat;
+                        upgradetamagochi.speed += stat;
+                    } else if (upgradetamagochi.prop == FIRE) {
+                        upgradetamagochi.maxHealth += 2 * stat;
+                        upgradetamagochi.health += 2 * stat;
+                        upgradetamagochi.attack += 3 * stat;
+                        upgradetamagochi.speed += stat;
+                    } else if (upgradetamagochi.prop == GRASS) {
+                        upgradetamagochi.maxHealth += 4 * stat;
+                        upgradetamagochi.health += 4 * stat;
+                        upgradetamagochi.attack += 2 * stat;
+                        upgradetamagochi.speed += stat;
+
+                    }
                     Storage.tamagochis.add(upgradetamagochi);
                 }
             TamagochiPick.pickedtamagochi.clear();

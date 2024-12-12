@@ -6,19 +6,25 @@ import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
 import utils.Geometry;
 import utils.HPBar;
+import utils.BackgroundImage;
+
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import static tamagochi.Tamagochi.*;
 
 public class UpgradeScene extends JPanel {
+    String imagePath = "./src/images/";
+
     public UpgradeScene() {
         setLayout(null);
 
         JLabel label = new JLabel("<html><h1>성장</h1></html>", SwingConstants.CENTER);
         label.setBounds(new Geometry(0.5f, 0.1f, 0.5f, 0.2f));
+        label.setForeground(Color.WHITE);
         add(label);
 
         ArrayList<TamagochiPick> tamagochiPicks = new ArrayList<>();
@@ -32,6 +38,11 @@ public class UpgradeScene extends JPanel {
         JButton completeButton = new JButton();
         completeButton.setBounds(new Geometry(0.85f,0.18f,0.2f,0.1f));
         completeButton.setText("완료");
+        Geometry.setIcon(completeButton, imagePath + "YellowPanel.png");
+
+        completeButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        completeButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
         completeButton.addActionListener(e -> {
             TamagochiPick.pickedtamagochi.clear();
             Main.round++;
@@ -42,6 +53,11 @@ public class UpgradeScene extends JPanel {
         JButton upgradeButton = new JButton();
         upgradeButton.setBounds(new Geometry(0.85f,0.65f,0.2f,0.1f));
         upgradeButton.setText("성장시키기");
+        Geometry.setIcon(upgradeButton, imagePath + "YellowPanel.png");
+
+        upgradeButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        upgradeButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
         upgradeButton.addActionListener(e ->{
                 if (TamagochiPick.pickedtamagochi.get(0).name == TamagochiPick.pickedtamagochi.get(1).name && TamagochiPick.pickedtamagochi.get(0).level == TamagochiPick.pickedtamagochi.get(1).level) {
                     Storage.tamagochis.remove(TamagochiPick.pickedtamagochi.get(0));
@@ -73,6 +89,9 @@ public class UpgradeScene extends JPanel {
             SceneManager.playScene(new UpgradeScene());
         });
         add(upgradeButton);
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");
+        add(bg);
     }
 }
 

@@ -4,9 +4,11 @@ import scripts.Main;
 import scripts.Storage;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
@@ -18,6 +20,7 @@ public class PartyScene extends JPanel {
 
         JLabel label = new JLabel("<html><h1>편성</h1></html>", SwingConstants.CENTER);
         label.setBounds(new Geometry(0.5f, 0.1f, 0.5f, 0.2f));
+        label.setForeground(Color.WHITE);
         add(label);
 
         ArrayList<TamagochiSelect> tamagochiSelects = new ArrayList<>();
@@ -31,6 +34,11 @@ public class PartyScene extends JPanel {
         JButton completeButton = new JButton();
         completeButton.setBounds(new Geometry(0.85f,0.18f,0.2f,0.1f));
         completeButton.setText("완료");
+        Geometry.setIcon(completeButton, imagePath + "YellowPanel.png");
+
+        completeButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        completeButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
         completeButton.addActionListener(e -> {
             Storage.fighters.clear();
             if (TamagochiSelect.selectedtamagochi.size() == 3) {
@@ -50,6 +58,10 @@ public class PartyScene extends JPanel {
             SceneManager.playScene(new RoundScene());
         });
         add(completeButton);
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");
+        add(bg);
+
     }
 }
 

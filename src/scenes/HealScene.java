@@ -2,6 +2,7 @@ package scenes;
 
 import scripts.Main;
 import scripts.Storage;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import javax.swing.*;
@@ -26,5 +27,9 @@ public class HealScene extends JPanel {
             SceneManager.playScene(new RoundScene());
         });
         add(HealButton);
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");
+        add(bg);
+
     }
 }

@@ -6,18 +6,18 @@ import java.lang.Math;
 
 public class Tamagochi{
     //속성들
-    static final int WATER = 1;
-    static final int FIRE = 2;
-    static final int GRASS = 3;
+    public static final int WATER = 1;
+    public static final int FIRE = 2;
+    public static final int GRASS = 3;
 
     //공통 스탯들
-    String name;
+    public String name;
     public int prop;
     public int maxHealth;
     public int health;
-    int attack;
-    int speed;
-    int level = 1;
+    public int attack;
+    public int speed;
+    public int level = 1;
     String imagePath = "./src/tamagochi/img/";
 
     public static Tamagochi getRandom(){

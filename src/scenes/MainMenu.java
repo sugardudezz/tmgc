@@ -15,7 +15,10 @@ public class MainMenu extends JPanel {
         setLayout(null);
 
         JLabel label = new JLabel("<html><h1>다마고치 브리더</h1></html>", JLabel.CENTER);
-        label.setBounds(new Geometry(0.5f,0.3f,0.5f,0.2f));
+        ImageIcon logoIcon = new ImageIcon(imagePath + "Logo.gif");
+        label.setBounds(new Geometry(0.5f,0.4f,0.5f,0.7f));
+
+        Geometry.setIcon(label, imagePath + "Logo.gif");
 
         JButton button = new JButton("게임 시작");
         button.setBounds(new Geometry(0.5f,0.7f,0.3f,0.15f));

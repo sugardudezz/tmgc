@@ -54,6 +54,53 @@ public class Tamagochi{
         }
     }
 
+    public void levelUp(){
+        if (prop == WATER) {
+            maxHealth += 8 * level;
+            health += 8 * level;
+            attack += level;
+            speed += level;
+        } else if (prop == FIRE) {
+            maxHealth += 2 * level;
+            health += 2 * level;
+            attack += 3 * level;
+            speed += level;
+        } else if (prop == GRASS) {
+            maxHealth += 4 * level;
+            health += 4 * level;
+            attack += 2 * level;
+            speed += level;
+        }
+        level += 1;
+    }
+
+    public void levelDown(){
+        if (prop == WATER) {
+            maxHealth += 8 * -level;
+            health += 8 * -level;
+            attack += -level;
+            speed += -level;
+        } else if (prop == FIRE) {
+            maxHealth += 2 * -level;
+            health += 2 * -level;
+            attack += 3 * -level;
+            speed += -level;
+        } else if (prop == GRASS) {
+            maxHealth += 4 * -level;
+            health += 4 * -level;
+            attack += 2 * -level;
+            speed += -level;
+        }
+        level -= 1;
+    }
+
+    public void setLevel(int target){
+        while(level != target){
+            if(level < target) levelUp();
+            else levelDown();
+        }
+    }
+
     public String toString(){
         String str = "";
         str += this.name + "(Lv. " + this.level + ") \n";
@@ -245,7 +292,11 @@ public class Tamagochi{
             this.speed = 4;
             this.imagePath += "Grass.gif";
         }
-
     }
 
+    public static class TamagochiUnknown extends Tamagochi{
+        public TamagochiUnknown(){
+            this.imagePath += "Unknown.png";
+        }
+    }
 }

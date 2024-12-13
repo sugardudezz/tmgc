@@ -117,6 +117,12 @@ public class FightScene extends JPanel {
             SceneManager.playScene(new RoundScene());
         });
         flee.setContentAreaFilled(false);
+
+        if(Main.round == 30){
+            flee.setEnabled(false);
+            flee.setToolTipText("마지막 라운드는 스킵할 수 없습니다.");
+        }
+
         add(flee);
 
         //라운드

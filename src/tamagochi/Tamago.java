@@ -7,9 +7,9 @@ public class Tamago extends Tamagochi {
     public Tamago(int prop){
         this.prop = prop;
         switch(prop){
-            case WATER: imagePath += "TamagoWater.png"; break;
-            case FIRE: imagePath += "TamagoFire.png"; break;
-            case GRASS: imagePath += "TamagoGrass.png";
+            case WATER: name = "WaterEgg"; imagePath += "TamagoWater.png"; break;
+            case FIRE: name = "FireEgg"; imagePath += "TamagoFire.png"; break;
+            case GRASS: name = "GrassEgg"; imagePath += "TamagoGrass.png";
         }
     }
 

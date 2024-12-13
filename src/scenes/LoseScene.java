@@ -31,7 +31,7 @@ public class LoseScene extends JPanel {
         button.setFont(font);
 
         button.addActionListener(e -> {
-            if (Storage.tamagochis.isEmpty()) {
+            if (Storage.isGameOver()) {
                 Main.round = 0;
                 Storage.clear();
                 SceneManager.playScene(new MainMenu());
@@ -40,7 +40,8 @@ public class LoseScene extends JPanel {
             }
         });
 
-        if(Storage.tamagochis.isEmpty()){
+        if(Storage.isGameOver()){
+            label.setText("<html><h1>모든 다마고치가 죽었습니다.</h1></html>");
             button.setText("처음으로");
         }
 

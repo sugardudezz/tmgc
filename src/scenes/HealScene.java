@@ -2,6 +2,7 @@ package scenes;
 
 import scripts.Main;
 import scripts.Storage;
+import tamagochi.Tamagochi;
 import utils.BackgroundImage;
 import utils.Geometry;
 
@@ -12,8 +13,8 @@ public class HealScene extends JPanel {
 
     public HealScene(){
         setLayout(null);
-        for (int i = 0; i < Storage.tamagochis.size(); i++) {
-            Storage.tamagochis.get(i).health = Storage.tamagochis.get(i).maxHealth;
+        for (Tamagochi tamagochi : Storage.tamagochis) {
+            tamagochi.health = tamagochi.maxHealth;
         }
         JButton HealButton = new JButton("회복 완료");
         HealButton.setBounds(new Geometry(0.5f,0.5f,0.8f,0.4f));

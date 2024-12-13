@@ -25,6 +25,15 @@ public class Storage {
         return (tamagochis.size() >= 5);
     }
 
+    public static boolean isGameOver(){
+        for(Tamagochi tamagochi : tamagochis){
+            if(!(tamagochi instanceof Tamago)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void setDead(Tamagochi deadTamagochi){
         tamagochis.remove(deadTamagochi);
         deads.add(deadTamagochi);

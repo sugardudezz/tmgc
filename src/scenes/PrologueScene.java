@@ -42,7 +42,6 @@ public class PrologueScene extends JPanel {
         MouseAdapter ma = new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
                 if (messageIndex < messages.length) {
                     String currentMessage = messages[messageIndex];
                     label.setText(currentMessage);

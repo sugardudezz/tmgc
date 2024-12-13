@@ -19,6 +19,7 @@ public class FightScene extends JPanel {
     static TamagochiFighter player;
     static TamagochiFighter enemy;
     static ArrayList<TamagochiFighter> substitutions = new ArrayList<>();
+    public static int phase = 0;
 
     String imagePath = "./src/images/";
 

@@ -53,14 +53,23 @@ public class AttackThread extends Thread {
             new HitAnimation().start();
 
             if(FightScene.enemy.tamagochi.health <= 0){
-                Main.round++;
-
                 //이김
                 try {
                     sleep(delayBeforeNextScene);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+
+                if (Main.round == 30){
+                    SceneManager.playScene(new FightScene());
+                    FightScene.phase += 1;
+                    if(FightScene.phase == 3){
+                        SceneManager.playScene(new EpilogueScene());
+                    }
+                    return;
+                }
+
+                Main.round++;
                 SceneManager.playScene(new WinScene(FightScene.enemy.tamagochi));
                 return;
             }

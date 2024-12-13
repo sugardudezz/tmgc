@@ -42,23 +42,24 @@ public class EpilogueScene extends JPanel {
         label.setBounds(new Geometry(0.5f, 0.5f, 0.6f, 0.3f));
         add(label);
 
-        printEpilogueText();
+        label.setText(messages[messageIndex]);
+        messageIndex++;
+
+        MouseAdapter ma = new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (messageIndex < messages.length) {
+                    String currentMessage = messages[messageIndex];
+                    label.setText(currentMessage);
+                    messageIndex++;
+                } else {
+                    SceneManager.playScene(new EndingScene());
+                }
+            }
+        };
+        addMouseListener(ma);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "Epilogue.png");
         add(bg);
-    }
-
-    private void printEpilogueText() {
-        Timer timer = new Timer(1500, e -> {
-            if (messageIndex < messages.length) {
-                String currentMessage = messages[messageIndex];
-                label.setText(currentMessage);
-                messageIndex++;
-            } else {
-                ((Timer) e.getSource()).stop();  // 모든 메시지가 출력되면 타이머 종료
-                SceneManager.playScene(new EndingScene());
-            }
-        });
-        timer.start();
     }
 }

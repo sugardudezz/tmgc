@@ -54,13 +54,60 @@ public class Tamagochi{
         }
     }
 
+    public void levelUp(){
+        if (prop == WATER) {
+            maxHealth += 8 * level;
+            health += 8 * level;
+            attack += level;
+            speed += level;
+        } else if (prop == FIRE) {
+            maxHealth += 2 * level;
+            health += 2 * level;
+            attack += 3 * level;
+            speed += level;
+        } else if (prop == GRASS) {
+            maxHealth += 4 * level;
+            health += 4 * level;
+            attack += 2 * level;
+            speed += level;
+        }
+        level += 1;
+    }
+
+    public void levelDown(){
+        if (prop == WATER) {
+            maxHealth += 8 * -level;
+            health += 8 * -level;
+            attack += -level;
+            speed += -level;
+        } else if (prop == FIRE) {
+            maxHealth += 2 * -level;
+            health += 2 * -level;
+            attack += 3 * -level;
+            speed += -level;
+        } else if (prop == GRASS) {
+            maxHealth += 4 * -level;
+            health += 4 * -level;
+            attack += 2 * -level;
+            speed += -level;
+        }
+        level -= 1;
+    }
+
+    public void setLevel(int target){
+        while(level != target){
+            if(level < target) levelUp();
+            else levelDown();
+        }
+    }
+
     public String toString(){
         String str = "";
         str += this.name + "(Lv. " + this.level + ") \n";
         switch(this.prop){
-            case 1: str += "속성: 물 \n"; break;
-            case 2: str += "속성: 불 \n"; break;
-            case 3: str += "속성: 풀 \n";
+            case WATER: str += "속성: 물 \n"; break;
+            case FIRE: str += "속성: 불 \n"; break;
+            case GRASS: str += "속성: 풀 \n";
         }
         str += "체력: " + this.health + "/" + this.maxHealth + " \n";
         str += "공격력: " + this.attack + " \n";
@@ -73,9 +120,9 @@ public class Tamagochi{
         String str = "";
         str += "??: (Lv. " + this.level + ") \n";
         switch(this.prop){
-            case 1: str += "속성: 물 \n"; break;
-            case 2: str += "속성: 불 \n"; break;
-            case 3: str += "속성: 풀 \n";
+            case WATER: str += "속성: 물 \n"; break;
+            case FIRE: str += "속성: 불 \n"; break;
+            case GRASS: str += "속성: 풀 \n";
         }
         str += "체력: " + this.health + "/" + this.maxHealth + " \n";
         str += "공격력: ?? \n";
@@ -129,6 +176,10 @@ public class Tamagochi{
             tamagochi.health -= this.attack;
             System.out.printf("%s(이)가 %s에게 %d의 피해를 입혔습니다.\n",this.name,tamagochi.name,this.attack);
         }
+    }
+
+    public void heal(int amount){
+        health = Math.min(maxHealth, health + amount);
     }
 
     public ImageIcon getScaledImage(int width, int height){
@@ -241,7 +292,11 @@ public class Tamagochi{
             this.speed = 4;
             this.imagePath += "Grass.gif";
         }
-
     }
 
+    public static class TamagochiUnknown extends Tamagochi{
+        public TamagochiUnknown(){
+            this.imagePath += "Unknown.png";
+        }
+    }
 }

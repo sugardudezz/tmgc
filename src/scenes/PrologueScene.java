@@ -36,22 +36,24 @@ public class PrologueScene extends JPanel {
         label.setBounds(new Geometry(0.5f, 0.5f, 0.6f, 0.3f));
         add(label);
 
-        printPrologueText();
+        label.setText(messages[messageIndex]);
+        messageIndex++;
+
+        MouseAdapter ma = new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (messageIndex < messages.length) {
+                    String currentMessage = messages[messageIndex];
+                    label.setText(currentMessage);
+                    messageIndex++;
+                } else { // 모든 메시지가 출력되면 타이머 종료
+                    SceneManager.playScene(new ChooseTamagochi());
+                }
+            }
+        };
+        addMouseListener(ma);
+
         BackgroundImage bg = new BackgroundImage(imagePath + "RoundScene.png");
         add(bg);
-    }
-
-    private void printPrologueText() {
-        Timer timer = new Timer(1000, e -> {
-            if (messageIndex < messages.length) {
-                String currentMessage = messages[messageIndex];
-                label.setText(currentMessage);
-                messageIndex++;
-            } else {
-                ((Timer) e.getSource()).stop();  // 모든 메시지가 출력되면 타이머 종료
-                SceneManager.playScene(new ChooseTamagochi());
-            }
-        });
-        timer.start();
     }
 }

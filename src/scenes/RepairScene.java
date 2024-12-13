@@ -32,6 +32,7 @@ public class RepairScene extends JPanel {
 
         upgradeButton.addActionListener(e -> SceneManager.playScene(new UpgradeScene()));
         upgradeButton.setToolTipText("다마고치를 합쳐 강화하세요");
+        upgradeButton.setContentAreaFilled(false);
         add(upgradeButton);
 
         JButton healButton = new JButton("회복");
@@ -46,6 +47,7 @@ public class RepairScene extends JPanel {
 
         healButton.addActionListener(e -> SceneManager.playScene(new HealScene()));
         healButton.setToolTipText("부상당한 다마고치를 치료하세요");
+        healButton.setContentAreaFilled(false);
         add(healButton);
 
         JButton partyButton = new JButton("편성");
@@ -60,6 +62,7 @@ public class RepairScene extends JPanel {
 
         partyButton.addActionListener(e -> SceneManager.playScene(new PartyScene()));
         partyButton.setToolTipText("전투에 출전할 다마고치 팀을 편성하세요");
+        partyButton.setContentAreaFilled(false);
         add(partyButton);
 
         JButton inventoryButton = new JButton("인벤토리 확인");
@@ -70,6 +73,8 @@ public class RepairScene extends JPanel {
         inventoryButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
 
         inventoryButton.addActionListener(e -> SceneManager.playScene(new InventoryScene()));
+
+        inventoryButton.setContentAreaFilled(false);
         add(inventoryButton);
 
         CheckRound();

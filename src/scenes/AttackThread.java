@@ -40,9 +40,9 @@ public class AttackThread extends Thread {
 
             for (FightScene.MyButton button : buttons){
                 // 교체할 다마고치가 없는 경우 교체 버튼을 활성화하면 안 되기 때문에 넣은 조건
-                if (!button.getName().equals("substitute") || !FightScene.substitutions.isEmpty()) {
-                    button.setEnabled(true);
-                }
+                if (button.getName().equals("substitute") && FightScene.substitutions.isEmpty()) continue;
+                if (button.getText().equals("도주") && Main.round == 30) continue;
+                button.setEnabled(true);
             }
         }else if(attacker == PLAYER){
             for (FightScene.MyButton button : buttons){
@@ -53,15 +53,24 @@ public class AttackThread extends Thread {
             new HitAnimation().start();
 
             if(FightScene.enemy.tamagochi.health <= 0){
-                Main.round++;
-
                 //이김
                 try {
                     sleep(delayBeforeNextScene);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                SceneManager.playScene(new WinScene());
+
+                if (Main.round == 30){
+                    SceneManager.playScene(new FightScene());
+                    FightScene.phase += 1;
+                    if(FightScene.phase == 3){
+                        SceneManager.playScene(new EpilogueScene());
+                    }
+                    return;
+                }
+
+                Main.round++;
+                SceneManager.playScene(new WinScene(FightScene.enemy.tamagochi));
                 return;
             }
 
@@ -84,9 +93,9 @@ public class AttackThread extends Thread {
 
             for (FightScene.MyButton button : buttons){
                 // 교체할 다마고치가 없는 경우 교체 버튼을 활성화하면 안 되기 때문에 넣은 조건
-                if (!button.getName().equals("substitute") || !FightScene.substitutions.isEmpty()) {
-                    button.setEnabled(true);
-                }
+                if (button.getName().equals("substitute") && FightScene.substitutions.isEmpty()) continue;
+                if (button.getText().equals("도주") && Main.round == 30) continue;
+                button.setEnabled(true);
             }
         }
     }

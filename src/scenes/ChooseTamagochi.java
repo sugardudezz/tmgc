@@ -35,6 +35,7 @@ public class ChooseTamagochi extends JPanel {
 
         JLabel label = new JLabel("<html><h1>원하는 다마고치를 선택하세요</h1></html>",SwingConstants.CENTER);
         label.setBounds(new Geometry(0.5f,0.25f,0.5f,0.2f));
+
         add(label);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "RoundScene.png");

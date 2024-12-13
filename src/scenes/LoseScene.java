@@ -15,13 +15,12 @@ public class LoseScene extends JPanel {
 
     public LoseScene(){
         setLayout(null);
-        Storage.clear();
 
         JLabel label = new JLabel("<html><h1>다마고치가 죽었습니다.</h1></html>", JLabel.CENTER);
         label.setBounds(new Geometry(0.5f,0.3f,0.5f,0.2f));
         label.setForeground(Color.RED);
 
-        JButton button = new JButton("처음으로");
+        JButton button = new JButton("다음으로");
         button.setBounds(new Geometry(0.5f,0.7f,0.4f,0.2f));
         Geometry.setIcon(button, imagePath + "YellowPanel.png");
 
@@ -31,7 +30,21 @@ public class LoseScene extends JPanel {
         Font font = new Font("woodPanel", Font.BOLD, 40);
         button.setFont(font);
 
-        button.addActionListener(e -> SceneManager.playScene(new MainMenu()));
+        button.addActionListener(e -> {
+            if (Storage.isGameOver()) {
+                Main.round = 0;
+                Storage.clear();
+                SceneManager.playScene(new MainMenu());
+            } else {
+                SceneManager.playScene(new RoundScene());
+            }
+        });
+
+        if(Storage.isGameOver()){
+            label.setText("<html><h1>모든 다마고치가 죽었습니다.</h1></html>");
+            button.setText("처음으로");
+        }
+        button.setContentAreaFilled(false);
 
         add(label);
         add(button);

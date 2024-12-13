@@ -7,18 +7,19 @@ public class Tamago extends Tamagochi {
     public Tamago(int prop){
         this.prop = prop;
         switch(prop){
-            case WATER: this.imagePath += "TamagoWater.png"; break;
-            case FIRE: this.imagePath += "TamagoFire.png"; break;
-            case GRASS: this.imagePath += "TamagoGrass.png";
+            case WATER: name = "WaterEgg"; imagePath += "TamagoWater.png"; break;
+            case FIRE: name = "FireEgg"; imagePath += "TamagoFire.png"; break;
+            case GRASS: name = "GrassEgg"; imagePath += "TamagoGrass.png";
         }
     }
 
     public String toString() {
         String str = "";
-        switch(this.prop){
-            case 1: str += "[물 속성 알] \n"; break;
-            case 2: str += "[불 속성 알] \n"; break;
-            case 3: str += "[풀 속성 알] \n";
+        str += "알(Lv."+level+") ";
+        switch(prop){
+            case WATER: str += "속성: 물 "; break;
+            case FIRE: str += "속성: 불 "; break;
+            case GRASS: str += "속성: 풀 ";
         }
         str += "부화: 전투에서 1회 승리";
         return str;
@@ -26,7 +27,7 @@ public class Tamago extends Tamagochi {
 
     public void hatch(){
         Storage.tamagochis.remove(this);
-        Storage.add(Tamagochi.getRandom(this.prop));
+        Storage.add(Tamagochi.getRandom(prop));
     }
 
 }

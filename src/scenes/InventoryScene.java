@@ -3,6 +3,7 @@ package scenes;
 import scripts.Storage;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import javax.swing.*;
@@ -33,5 +34,8 @@ public class InventoryScene extends JPanel {
 
         inventoryButton.addActionListener(e -> SceneManager.playScene(new RepairScene()));
         add(inventoryButton);
+
+        BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");
+        add(bg);
     }
 }

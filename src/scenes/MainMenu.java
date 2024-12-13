@@ -24,6 +24,7 @@ public class MainMenu extends JPanel {
         button.setBounds(new Geometry(0.5f,0.7f,0.3f,0.15f));
         button.addActionListener(e -> SceneManager.playScene(new PrologueScene()));
 
+
         Geometry.setIcon(button, imagePath + "PlayButton.png");
 
         button.setForeground(Color.WHITE);
@@ -33,6 +34,7 @@ public class MainMenu extends JPanel {
         Font font = new Font("woodPanel", Font.BOLD, 30);
         button.setFont(font);
 
+        button.setContentAreaFilled(false);
 
         add(label);
         add(button);

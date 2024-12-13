@@ -33,6 +33,8 @@ public class InventorySelectScene extends JPanel {
         inventoryButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
 
         inventoryButton.addActionListener(e -> SceneManager.playScene(returnScene));
+
+        inventoryButton.setContentAreaFilled(false);
         add(inventoryButton);
     }
 

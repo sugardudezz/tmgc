@@ -44,6 +44,7 @@ public class LoseScene extends JPanel {
             label.setText("<html><h1>모든 다마고치가 죽었습니다.</h1></html>");
             button.setText("처음으로");
         }
+        button.setContentAreaFilled(false);
 
         add(label);
         add(button);

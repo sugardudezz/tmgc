@@ -51,6 +51,7 @@ public class UpgradeScene extends JPanel {
             Main.round++;
             SceneManager.playScene(new RoundScene());
         });
+        completeButton.setContentAreaFilled(false);
         add(completeButton);
 
         upgradeButton = new JButton();
@@ -90,6 +91,7 @@ public class UpgradeScene extends JPanel {
             TamagochiPick.pickedtamagochi.clear();
             SceneManager.playScene(new UpgradeScene());
         });
+        upgradeButton.setContentAreaFilled(false);
         add(upgradeButton);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");

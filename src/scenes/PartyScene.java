@@ -74,6 +74,8 @@ public class PartyScene extends JPanel {
             Main.round++;
             SceneManager.playScene(new RoundScene());
         });
+        completeButton.setContentAreaFilled(false);
+        completeButton.setContentAreaFilled(false);
         add(completeButton);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");

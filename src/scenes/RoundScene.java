@@ -23,6 +23,7 @@ public class RoundScene extends JPanel {
         Geometry.setIcon(fightButton, imagePath + "YellowPanel.png");
 
         fightButton.addActionListener(e -> SceneManager.playScene(new FightScene()));
+        fightButton.setContentAreaFilled(false);
         add(fightButton);
 
         JButton repairButton = new JButton();
@@ -31,6 +32,7 @@ public class RoundScene extends JPanel {
         Geometry.setIcon(repairButton, imagePath + "YellowPanel.png");
 
         repairButton.addActionListener(e -> SceneManager.playScene(new RepairScene()));
+        repairButton.setContentAreaFilled(false);
         add(repairButton);
 
         fightButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬

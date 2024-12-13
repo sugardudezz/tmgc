@@ -27,6 +27,7 @@ public class HealScene extends JPanel {
             Main.round++;
             SceneManager.playScene(new RoundScene());
         });
+        HealButton.setContentAreaFilled(false);
         add(HealButton);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");

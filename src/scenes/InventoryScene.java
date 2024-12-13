@@ -33,6 +33,8 @@ public class InventoryScene extends JPanel {
         inventoryButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
 
         inventoryButton.addActionListener(e -> SceneManager.playScene(new RepairScene()));
+
+        inventoryButton.setContentAreaFilled(false);
         add(inventoryButton);
 
         BackgroundImage bg = new BackgroundImage(imagePath + "RepairScene.png");

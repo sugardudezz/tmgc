@@ -42,6 +42,9 @@ public class EndingScene extends JPanel {
 
         button2.setFont(font);
 
+        button1.setContentAreaFilled(false);
+        button2.setContentAreaFilled(false);
+
         add(label);
         add(button1);
         add(button2);

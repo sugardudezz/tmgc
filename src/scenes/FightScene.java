@@ -55,6 +55,7 @@ public class FightScene extends JPanel {
             AttackThread attackThread = new AttackThread(AttackThread.PLAYER);
             attackThread.start();
         });
+        attack.setContentAreaFilled(false);
         add(attack);
 
         //교체 버튼
@@ -69,6 +70,7 @@ public class FightScene extends JPanel {
 
         substitute.addActionListener(e -> MyButton.setSubstitution(true));
         substitute.setName("substitute");
+        substitute.setContentAreaFilled(false);
         add(substitute);
 
         switch(Storage.fighters.size()) {
@@ -96,6 +98,7 @@ public class FightScene extends JPanel {
                 player.changeFighter((TamagochiFighter) e.getSource());
                 MyButton.setSubstitution(false);
             });
+            substitution.setContentAreaFilled(false);
             add(substitution);
         }
 
@@ -113,6 +116,7 @@ public class FightScene extends JPanel {
             Main.round++;
             SceneManager.playScene(new RoundScene());
         });
+        flee.setContentAreaFilled(false);
         add(flee);
 
         //라운드

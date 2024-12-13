@@ -1,15 +1,18 @@
 package scenes;
 
+import scripts.Main;
 import scripts.Storage;
 import tamagochi.Tamago;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
+import utils.BackgroundImage;
 import utils.Geometry;
 
 import javax.swing.*;
 
 public class WinScene extends JPanel {
     String imagePath = "./src/tamagochi/img/";
+    String imagePath1 = "./src/images/";
     Tamagochi returnTamagochi;
     JButton storageFull;
     Tamago tamago;
@@ -84,6 +87,11 @@ public class WinScene extends JPanel {
 
             swapButton = new JButton("교환하기");
             swapButton.setBounds(new Geometry(0.5f,0.55f,220,30));
+            Geometry.setIcon(swapButton, imagePath1 + "YellowPanel.png");
+            swapButton.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+            swapButton.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
+
             swapButton.setEnabled(false);
             swapButton.setToolTipText("다마고치를 클릭해서 교환할 다마고치를 고르세요");
             swapButton.addActionListener(e -> {
@@ -101,8 +109,14 @@ public class WinScene extends JPanel {
 
         JButton next = new JButton("다음으로");
         next.setBounds(new Geometry(0.5f,0.86f,200,40));
+        Geometry.setIcon(next, imagePath1 + "YellowPanel.png");
+
+        next.setHorizontalTextPosition(SwingConstants.CENTER);  // 텍스트 중앙 정렬
+        next.setVerticalTextPosition(SwingConstants.CENTER);    // 텍스트 중앙 정렬
+
         next.addActionListener(e -> SceneManager.playScene(new RoundScene()));
         add(next);
+        CheckRound();
     }
 
     public void setReturnTamagochi(Tamagochi tamagochi){
@@ -122,6 +136,18 @@ public class WinScene extends JPanel {
 
             swapButton.setEnabled(true);
             swapButton.setToolTipText(null);
+        }
+    }
+    public void CheckRound() {
+        if ( Main.round >= 0 && Main.round <= 10 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene1.png"); add(bg);
+        }
+        else if ( Main.round >= 11 && Main.round <= 20 ) {
+            BackgroundImage bg = new BackgroundImage("./src/images/FightScene2.png"); add(bg);
+        }
+
+        else {
+            BackgroundImage bg = new BackgroundImage( "./src/images/FightScene3.png"); add(bg);
         }
     }
 }
@@ -163,4 +189,6 @@ class SwapTamagochi extends TamagochiButton{
         setIcon(tamagochi.getScaledImage(geometry.width, geometry.height));
         toolTipUpdate();
     }
+
+
 }

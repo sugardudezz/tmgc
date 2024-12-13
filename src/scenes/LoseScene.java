@@ -21,7 +21,7 @@ public class LoseScene extends JPanel {
         label.setBounds(new Geometry(0.5f,0.3f,0.5f,0.2f));
         label.setForeground(Color.RED);
 
-        JButton button = new JButton("처음으로");
+        JButton button = new JButton("다음으로");
         button.setBounds(new Geometry(0.5f,0.7f,0.4f,0.2f));
         Geometry.setIcon(button, imagePath + "YellowPanel.png");
 
@@ -31,7 +31,18 @@ public class LoseScene extends JPanel {
         Font font = new Font("woodPanel", Font.BOLD, 40);
         button.setFont(font);
 
-        button.addActionListener(e -> SceneManager.playScene(new MainMenu()));
+        button.addActionListener(e -> {
+            if (Storage.tamagochis.isEmpty()) {
+                Main.round = 0;
+                SceneManager.playScene(new MainMenu());
+            } else {
+                SceneManager.playScene(new RoundScene());
+            }
+        });
+
+        if(Storage.tamagochis.isEmpty()){
+            button.setText("처음으로");
+        }
 
         add(label);
         add(button);

@@ -15,13 +15,13 @@ public class InventoryScene extends JPanel {
     public InventoryScene(){
         setLayout(null);
 
-        ArrayList<TamagochiCatalog> tamagochiCatalogs = new ArrayList<>();
+        ArrayList<TamagochiButton> TamagochiButtons = new ArrayList<>();
 
         for (int i = 0; i < Storage.tamagochis.size(); i++) {
-            TamagochiCatalog tamagochiCatalog = new TamagochiCatalog(Storage.tamagochis.get(i));
-            tamagochiCatalogs.add(tamagochiCatalog);
-            tamagochiCatalogs.get(i).setBounds(new Geometry(0.165f * (i + 1), 0.2f, 150, 150));
-            add(tamagochiCatalogs.get(i));
+            TamagochiButton TamagochiButton = new TamagochiButton(Storage.tamagochis.get(i));
+            TamagochiButtons.add(TamagochiButton);
+            TamagochiButtons.get(i).setBounds(new Geometry(0.165f * (i + 1), 0.2f, 150, 150));
+            add(TamagochiButtons.get(i));
         }
 
         JButton inventoryButton = new JButton("확인 완료");
@@ -33,11 +33,5 @@ public class InventoryScene extends JPanel {
 
         inventoryButton.addActionListener(e -> SceneManager.playScene(new RepairScene()));
         add(inventoryButton);
-    }
-}
-
-class TamagochiCatalog extends TamagochiButton {
-    public TamagochiCatalog(Tamagochi tamagochi){
-        super(tamagochi);
     }
 }

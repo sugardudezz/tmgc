@@ -61,7 +61,7 @@ public class AttackThread extends Thread {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                SceneManager.playScene(new WinScene());
+                SceneManager.playScene(new WinScene(FightScene.enemy.tamagochi));
                 return;
             }
 

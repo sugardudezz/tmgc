@@ -58,9 +58,9 @@ public class Tamagochi{
         String str = "";
         str += this.name + "(Lv. " + this.level + ") \n";
         switch(this.prop){
-            case 1: str += "속성: 물 \n"; break;
-            case 2: str += "속성: 불 \n"; break;
-            case 3: str += "속성: 풀 \n";
+            case WATER: str += "속성: 물 \n"; break;
+            case FIRE: str += "속성: 불 \n"; break;
+            case GRASS: str += "속성: 풀 \n";
         }
         str += "체력: " + this.health + "/" + this.maxHealth + " \n";
         str += "공격력: " + this.attack + " \n";
@@ -73,9 +73,9 @@ public class Tamagochi{
         String str = "";
         str += "??: (Lv. " + this.level + ") \n";
         switch(this.prop){
-            case 1: str += "속성: 물 \n"; break;
-            case 2: str += "속성: 불 \n"; break;
-            case 3: str += "속성: 풀 \n";
+            case WATER: str += "속성: 물 \n"; break;
+            case FIRE: str += "속성: 불 \n"; break;
+            case GRASS: str += "속성: 풀 \n";
         }
         str += "체력: " + this.health + "/" + this.maxHealth + " \n";
         str += "공격력: ?? \n";
@@ -129,6 +129,10 @@ public class Tamagochi{
             tamagochi.health -= this.attack;
             System.out.printf("%s(이)가 %s에게 %d의 피해를 입혔습니다.\n",this.name,tamagochi.name,this.attack);
         }
+    }
+
+    public void heal(int amount){
+        health = Math.min(maxHealth, health + amount);
     }
 
     public ImageIcon getScaledImage(int width, int height){

@@ -74,12 +74,12 @@ public class FightScene extends JPanel {
         switch(Storage.fighters.size()) {
             case 3:
                 TamagochiFighter subs2 = new TamagochiFighter(Storage.fighters.get(2));
-                subs2.setBounds(new Geometry(0.6f, 0.75f, 0.16f));
+                subs2.setBounds(new Geometry(0.6f, 0.75f, 0.13f));
                 subs2.setVisible(false);
                 substitutions.add(subs2);
             case 2:
                 TamagochiFighter subs1 = new TamagochiFighter(Storage.fighters.get(1));
-                subs1.setBounds(new Geometry(0.45f, 0.75f, 0.16f));
+                subs1.setBounds(new Geometry(0.41f, 0.75f, 0.13f));
                 subs1.setVisible(false);
                 substitutions.add(subs1);
                 break;
@@ -182,7 +182,6 @@ public class FightScene extends JPanel {
             fighter.tamagochi = temp;
             this.setBounds(this.geometry);
             fighter.setBounds(fighter.geometry);
-            hpBar = new HPBar(this);
             this.toolTipUpdate();
             hpBar.update();
         }

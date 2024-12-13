@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class InventorySelectScene extends JPanel {
     String imagePath = "./src/images/";
-    static JPanel returnScene;
+    static WinScene returnScene;
 
-    public InventorySelectScene(JPanel originalScene){
+    public InventorySelectScene(WinScene originalScene){
         setLayout(null);
         returnScene = originalScene;
         ArrayList<TamagochiCatalog> tamagochiCatalogs = new ArrayList<>();
@@ -43,7 +43,7 @@ public class InventorySelectScene extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Storage.tamagochis.remove(this.tamagochi);
+            returnScene.setReturnTamagochi(this.tamagochi);
             SceneManager.playScene(returnScene);
         }
     }

@@ -37,6 +37,7 @@ public class HPBar extends JProgressBar {
 
         setMaximum(tamagochi.maxHealth);
         setValue(tamagochi.health);
+        setString(tamagochi.health + "/" + tamagochi.maxHealth);
     }
 
     public void attacked(){

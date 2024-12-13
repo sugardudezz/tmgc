@@ -12,6 +12,7 @@ public class WinScene extends JPanel {
     String imagePath = "./src/tamagochi/img/";
     Tamagochi returnTamagochi;
     JButton storageFull;
+    Tamago tamago;
     public WinScene(Tamagochi enemy){
         setLayout(null);
 
@@ -36,18 +37,21 @@ public class WinScene extends JPanel {
 
         int rng = (int)(Math.random()*4+1);
 
+        rng /= rng;
+
         if (rng <= 2) {
             JLabel eggLabel = new JLabel("알 획득!", SwingConstants.CENTER);
             eggLabel.setBounds(new Geometry(0.6f, 0.4f, 200, 100));
             add(eggLabel);
 
-            Tamago tamago = new Tamago(enemy.prop);
+            tamago = new Tamago(enemy.prop);
             TamagochiButton egg = new TamagochiButton(tamago);
             egg.setBounds(new Geometry(0.4f, 0.4f, 120, 120));
             add(egg);
 
             storageFull = new JButton("저장소 아이템과 맞바꾸기");
-            storageFull.setBounds(new Geometry(0.5f, 0.5f, 200, 100));
+            storageFull.setBounds(new Geometry(0.5f, 0.55f, 220, 30));
+            storageFull.addActionListener(e -> SceneManager.playScene(new InventorySelectScene(this)));
 
             if (Storage.tamagochis.size() >= 5) {
                 add(storageFull);
@@ -67,13 +71,15 @@ public class WinScene extends JPanel {
         }
 
         JButton next = new JButton("다음으로");
-        next.setBounds(new Geometry(0.5f,0.8f,200,50));
+        next.setBounds(new Geometry(0.5f,0.85f,200,50));
         next.addActionListener(e -> SceneManager.playScene(new RoundScene()));
         add(next);
     }
 
     public void setReturnTamagochi(Tamagochi tamagochi){
         returnTamagochi = tamagochi;
+        Storage.tamagochis.remove(returnTamagochi);
+        Storage.add(tamago);
         storageFull.setEnabled(false);
         storageFull.setText("완료");
     }

@@ -15,10 +15,14 @@ public class Storage {
             throw new ArrayIndexOutOfBoundsException();
         }
         tamagochis.add(tamagochi);
-        if(fighters.size() < 3){
-            fighters.add(tamagochi);
+        if (!(tamagochi instanceof Tamago)) {
+            if (fighters.size() < 3) {
+                fighters.add(tamagochi);
+            }
+            System.out.print("Tamagochi added. Size: "+tamagochis.size()+"\n");
+        }else{
+            System.out.print("Tamago added. Size: "+tamagochis.size()+"\n");
         }
-        System.out.print("Tamagochi added. Size: "+tamagochis.size()+"\n");
     }
 
     public static boolean isStorageFull(){
@@ -36,6 +40,7 @@ public class Storage {
 
     public static void setDead(Tamagochi deadTamagochi){
         tamagochis.remove(deadTamagochi);
+        fighters.remove(deadTamagochi);
         deads.add(deadTamagochi);
     }
 
@@ -43,5 +48,15 @@ public class Storage {
         tamagochis.clear();
         fighters.clear();
         deads.clear();
+    }
+
+    //알 빼고 받는 함수
+    public static ArrayList<Tamagochi> getTamagochisOnly(){
+        ArrayList<Tamagochi> arr = new ArrayList<>();
+        for (Tamagochi tamagochi : tamagochis){
+            if(tamagochi instanceof Tamago) { continue; }
+            arr.add(tamagochi);
+        }
+        return arr;
     }
 }

@@ -15,7 +15,6 @@ public class LoseScene extends JPanel {
 
     public LoseScene(){
         setLayout(null);
-        Storage.clear();
 
         JLabel label = new JLabel("<html><h1>다마고치가 죽었습니다.</h1></html>", JLabel.CENTER);
         label.setBounds(new Geometry(0.5f,0.3f,0.5f,0.2f));
@@ -34,6 +33,7 @@ public class LoseScene extends JPanel {
         button.addActionListener(e -> {
             if (Storage.tamagochis.isEmpty()) {
                 Main.round = 0;
+                Storage.clear();
                 SceneManager.playScene(new MainMenu());
             } else {
                 SceneManager.playScene(new RoundScene());

@@ -2,6 +2,7 @@ package scenes;
 
 import scripts.Main;
 import scripts.Storage;
+import tamagochi.Tamago;
 import tamagochi.Tamagochi;
 import tamagochi.TamagochiButton;
 import utils.BackgroundImage;
@@ -26,6 +27,9 @@ public class PartyScene extends JPanel {
         ArrayList<TamagochiSelect> tamagochiSelects = new ArrayList<>();
 
         for (int i = 0; i < Storage.tamagochis.size(); i++) {
+            if(Storage.tamagochis.get(i) instanceof Tamago){
+                continue;
+            }
             TamagochiSelect tamagochiSelect = new TamagochiSelect(Storage.tamagochis.get(i));
             tamagochiSelects.add(tamagochiSelect);
             tamagochiSelects.get(i).setBounds(new Geometry(0.165f * (i + 1), 0.8f, 100, 100));
@@ -53,6 +57,19 @@ public class PartyScene extends JPanel {
             } else {
                 Storage.fighters.add(Storage.tamagochis.get(0));
             }
+
+            //남는 다마고치 있으면 자동편성
+            ArrayList<Tamagochi> tamagochisOnly = Storage.getTamagochisOnly();
+            if(Storage.fighters.size() < tamagochisOnly.size()){
+                for (Tamagochi tamagochi : tamagochisOnly){
+                    if (Storage.fighters.contains(tamagochi)) continue;
+                    Storage.fighters.add(tamagochi);
+                    if(Storage.fighters.size() >= 3){
+                        break;
+                    }
+                }
+            }
+
             TamagochiSelect.selectedtamagochi.clear();
             Main.round++;
             SceneManager.playScene(new RoundScene());
